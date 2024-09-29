@@ -1,0 +1,47 @@
+.card {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.card_img {
+  border-radius: 10px;
+}
+.name {
+  color: red;
+}
+.card_about {
+  margin-left: 40px;
+  padding: 40px 15px;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  width: 600px;
+}
+.navi {
+  display: flex;
+  margin-bottom: 15px;
+  margin-left: 40px;
+}
+.movie_item {
+  text-decoration: none;
+  display: block;
+  background-color: red;
+  font-size: 1.2em;
+  color: white;
+  margin-left: 20px;
+  border-radius: 10px;
+
+  font-family: unset;
+  padding: 0 10px;
+
+  &:hover {
+    background-color: black;
+    color: red;
+  }
+}
+
+.movie_item_active {
+  background-color: black;
+  color: red;
+}

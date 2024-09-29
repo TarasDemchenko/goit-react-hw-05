@@ -1,0 +1,26 @@
+/* src/index.css */
+body {
+  line-height: 2;
+  background-image: linear-gradient(#1c1a1a80, rgba(29, 27, 27, 0.5)),
+    url("../img/img.jpeg");
+  background-size: 100%;
+  background-repeat: repeat-y;
+  /* background-size: no-repeat; */
+  padding: 10px 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}

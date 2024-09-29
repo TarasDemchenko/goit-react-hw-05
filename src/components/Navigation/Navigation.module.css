@@ -1,0 +1,46 @@
+.header {
+  z-index: 100;
+  width: 100%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home_title {
+  text-decoration: none;
+  color: red;
+  margin-left: 40px;
+  font-family: unset;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.home_list {
+  display: flex;
+}
+.home_item {
+  text-decoration: none;
+  display: block;
+  background-color: red;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 10px;
+  margin-right: 40px;
+  font-family: unset;
+  padding: 0 10px;
+
+  &:hover {
+    background-color: black;
+    color: red;
+  }
+}
+.home_item_active {
+  background-color: black;
+  color: red;
+}
+/* .home_item:not(:last-child) {
+  margin-right: 20px;
+} */
