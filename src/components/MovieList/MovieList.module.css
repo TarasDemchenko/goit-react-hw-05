@@ -1,11 +1,6 @@
-.title {
-  color: white;
-  font-family: fantasy;
-}
-
 .container {
   display: flex;
-  gap: 200px;
+  gap: 270px;
 }
 .variant {
   color: white;

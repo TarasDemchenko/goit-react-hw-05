@@ -6,7 +6,7 @@ import clsx from "clsx";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  console.log(movieId);
+
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {

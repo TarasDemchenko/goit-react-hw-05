@@ -27,3 +27,11 @@ export const fetchFilmByReviews = async (movieId) => {
 `);
   return data.results;
 };
+
+export const fetchFilmBySearch = async (values) => {
+  const { data } =
+    await axios.get(`https://api.themoviedb.org/3/search/movie?query=${values}&api_key=fcda54be8650c9b11970d8029be3ea3a
+`);
+
+  return data.results;
+};

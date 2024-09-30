@@ -1,0 +1,16 @@
+.blok {
+  border: 2px solid white;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.li {
+  list-style-type: none;
+}
+.review {
+  color: white;
+}
+.author {
+  color: red;
+}

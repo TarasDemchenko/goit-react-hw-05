@@ -33,7 +33,6 @@ const MovieList = () => {
 
   return (
     <div>
-      <h1 className={s.title}>Trending today:</h1>
       <div className={s.container}>
         <ul>
           {films.map((film) => (
