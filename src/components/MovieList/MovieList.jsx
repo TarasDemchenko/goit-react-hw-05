@@ -1,33 +1,38 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import s from "./MovieList.module.css";
-import { fetchFilm } from "../../services/api";
-import { NavLink } from "react-router-dom";
+// import { fetchFilm } from "../../services/api";
+import { NavLink, useLocation } from "react-router-dom";
 
-const MovieList = () => {
-  const [films, setFilms] = useState([]);
-  const [error, setError] = useState(false);
+const MovieList = ({ films }) => {
+  const location = useLocation();
+  // const [films, setFilms] = useState([]);
+  // const [error, setError] = useState(false);
   const [active, setActive] = useState(null);
+  // const location = useLocation();
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const data = await fetchFilm();
-        console.log(data);
-        setFilms(data);
-        setActive(data[0]);
-      } catch {
-        setError(true);
-        console.log(error);
-      }
-    };
-    getData();
-  }, [error]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const data = await fetchFilm();
+  //       console.log(data);
+  //       setFilms(data);
+  //       setActive(data[0]);
+  //     } catch {
+  //       setError(true);
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+  // }, [error]);
 
   const handleMouseEnter = (film) => {
     setActive(film);
   };
 
   const handleMouseLeave = () => {
+    // if (films.length > 0) {
+    //   setActive(films[0]);
+    // }
     setActive(films[0]);
   };
 
@@ -43,7 +48,8 @@ const MovieList = () => {
               onMouseLeave={handleMouseLeave}
             >
               <NavLink
-                to={film.id.toString()}
+                to={`/movies/${film.id}`}
+                state={location}
                 className={`${s.list} ${active === film ? s.listRed : ""}`}
               >
                 {film.title}
@@ -51,6 +57,7 @@ const MovieList = () => {
             </li>
           ))}
         </ul>
+
         {active && (
           <div className={s.poster}>
             <img

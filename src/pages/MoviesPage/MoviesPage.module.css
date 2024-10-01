@@ -1,6 +1,35 @@
 .search {
   display: flex;
-  justify-content: center;
   color: white;
   text-align: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.search h2 {
+  font-size: 2em;
+  display: block;
+}
+/* .blokInput {
+  text-align: center;
+} */
+.input {
+  width: 200px;
+  height: 30px;
+  border-radius: 10px;
+}
+.button {
+  background-color: red;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-family: unset;
+  padding: 7px 10px;
+
+  &:hover {
+    background-color: black;
+    color: red;
+  }
 }

@@ -5,23 +5,28 @@ import { fetchFilmBySearch } from "../../services/api";
 import { useEffect, useState } from "react";
 import Advertising from "../../components/Advertising/Advertising";
 import { useSearchParams } from "react-router-dom";
+import MovieList from "../../components/MovieList/MovieList";
 
 const MoviesPage = () => {
   const [searchQuery, setSearchQuery] = useState([]);
   // const [values, setValues] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
-  const values = searchParams.get("topis.query") ?? "";
+
+  const searchContent = searchParams.get("query") ?? "";
   const initialValues = {
-    query: "",
+    query: searchContent,
   };
 
   useEffect(() => {
     const getDataSearch = async () => {
-      const data = await fetchFilmBySearch(values);
-      setSearchQuery(data);
+      if (searchContent) {
+        const data = await fetchFilmBySearch(searchContent);
+
+        setSearchQuery(data);
+      }
     };
     getDataSearch();
-  }, [values]);
+  }, [searchContent]);
 
   const handlSubmit = (topic) => {
     console.log(topic);
@@ -34,18 +39,25 @@ const MoviesPage = () => {
     <>
       <div className={s.search}>
         <div>
-          <h2>Find your perfect movie...</h2>
+          <h2>Find your perfect movie</h2>
         </div>
-        <div>
+        <div className={s.blokInput}>
           <Formik initialValues={initialValues} onSubmit={handlSubmit}>
             <Form>
-              <Field name="query" />
-              <button type="submit">Search</button>
+              <Field name="query" className={s.input} />
+              <button className={s.button} type="submit">
+                Search
+              </button>
             </Form>
           </Formik>
         </div>
       </div>
-      <Advertising />
+
+      {searchQuery.length > 0 ? (
+        <MovieList films={searchQuery} />
+      ) : (
+        <Advertising />
+      )}
     </>
   );
 };

@@ -1,7 +1,10 @@
 .title {
   color: white;
-  display: flex;
-  justify-content: center;
-  margin-top: 100px;
+  text-align: center;
+  margin-top: 20px;
   font-size: 3em;
+}
+
+.title img {
+  border-radius: 10px;
 }

@@ -1,6 +1,7 @@
 .container {
   display: flex;
-  gap: 270px;
+  align-items: flex-start;
+  gap: 250px;
 }
 .variant {
   color: white;
