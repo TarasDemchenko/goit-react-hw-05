@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
+import s from "./NotFoundPage.module.css";
 
 const NotFoundPage = () => {
   return (
-    <div>
-      <h1>Sorry but page is not found</h1>
-      <Link to="/">Home</Link>
+    <div className={s.notFound}>
+      <h1>Sorry but page is not found.</h1>
+      <Link to="/" className={s.button}>
+        Home
+      </Link>
     </div>
   );
 };

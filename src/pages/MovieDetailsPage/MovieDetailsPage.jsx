@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchFilmById } from "../../services/api";
 import s from "./MovieDetailsPage.module.css";
@@ -9,7 +9,7 @@ const MovieDetailsPage = () => {
 
   const [movie, setMovie] = useState(null);
   const location = useLocation();
-  const goBackRef = useRef(location.state ?? "/");
+  const goBackRef = useRef(location.state ?? "/movies");
   useEffect(() => {
     const getDataById = async () => {
       const data = await fetchFilmById(movieId);
@@ -53,6 +53,7 @@ const MovieDetailsPage = () => {
         <NavLink to="cast" className={buildLinkClass}>
           Cast
         </NavLink>
+
         <NavLink to="reviews" className={buildLinkClass}>
           Reviews
         </NavLink>
@@ -60,7 +61,9 @@ const MovieDetailsPage = () => {
           Go back
         </NavLink>
       </div>
-      <Outlet />
+      <Suspense fallback={<h3>Loading...</h3>}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

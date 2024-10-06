@@ -6,15 +6,18 @@ import s from "./MovieReviews.module.css";
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getReviews = async () => {
       const data = await fetchFilmByReviews(movieId);
       setReviews(data);
+      setLoading(false);
     };
     getReviews();
   }, [movieId]);
-  if (!reviews) return <h2>Loading...</h2>;
+  if (loading) return <h2>Loading...</h2>;
+  if (!reviews) return <h2>No items</h2>;
   return (
     <>
       <ul>

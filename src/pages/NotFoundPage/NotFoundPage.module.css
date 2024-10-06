@@ -1,0 +1,21 @@
+.notFound {
+  color: white;
+}
+.button {
+  width: 50px;
+  text-decoration: none;
+  display: block;
+  background-color: red;
+  font-size: 1.2em;
+  color: white;
+  border-radius: 10px;
+  margin-left: 40px;
+  margin-top: 10px;
+  font-family: unset;
+  padding: 0 10px;
+
+  &:hover {
+    background-color: black;
+    color: red;
+  }
+}

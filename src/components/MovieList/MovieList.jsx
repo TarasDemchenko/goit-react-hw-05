@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import s from "./MovieList.module.css";
 // import { fetchFilm } from "../../services/api";
 import { NavLink, useLocation } from "react-router-dom";
@@ -24,6 +24,12 @@ const MovieList = ({ films }) => {
   //   };
   //   getData();
   // }, [error]);
+
+  useEffect(() => {
+    if (films.length > 0) {
+      setActive(films[0]);
+    }
+  }, [films]);
 
   const handleMouseEnter = (film) => {
     setActive(film);
