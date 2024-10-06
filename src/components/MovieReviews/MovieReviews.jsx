@@ -17,7 +17,7 @@ const MovieReviews = () => {
     getReviews();
   }, [movieId]);
   if (loading) return <h2>Loading...</h2>;
-  if (!reviews) return <h2>No items</h2>;
+  if (!reviews) return <h2>No comments yet!</h2>;
   return (
     <>
       <ul>
